@@ -23,8 +23,12 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 400px;
 
+}
+
+#container-botoes{
+    margin-bottom: 15px;
 }
 
 input[type="button"]{
