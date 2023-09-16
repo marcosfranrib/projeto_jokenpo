@@ -6,7 +6,6 @@ const resultado = document.querySelector('#resultado')
 const placar = document.querySelector('#placar')
 let contador = 1;
 
-
 pedra.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
     console.log('NUMERO: ',numeroSorteado);
