@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+}
+
+input[type="button"]{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+#resultado{
+    width: 250px;
+    margin:10px 0px;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+#placar{
+    width: 250px;
+    text-align: center;
+    background-color: rgb(27, 26, 26);
+    color: white;
+    padding: 0.4rem;
+}
