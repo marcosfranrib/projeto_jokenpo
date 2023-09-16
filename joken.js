@@ -13,7 +13,7 @@ pedra.addEventListener('click', ()=>{
 
     if (numeroSorteado == 1) {
         resultado.innerHTML = 'TESOURA, VOCÊ VENCEU';    
-        placar.innerHTML = contador++
+        placar.innerHTML = `PLACAR: ${contador++}`
 
     }else if (numeroSorteado == 2) {
         resultado.innerHTML = 'PAPEL, VOCÊ PERDEU'
@@ -37,7 +37,7 @@ papel.addEventListener('click', ()=>{
     
     }else if (numeroSorteado == 3) {
         resultado.innerHTML = 'PEDRA, VOCÊ VENCEU'
-        placar.innerHTML = contador++
+        placar.innerHTML = `PLACAR: ${contador++}`
     }
 
 })
@@ -51,7 +51,7 @@ tesoura.addEventListener('click', ()=>{
 
     }else if (numeroSorteado == 2) {
         resultado.innerHTML = 'PAPEL, VOCÊ VENCEU'
-        placar.innerHTML = contador++
+        placar.innerHTML = `PLACAR: ${contador++}`
     
     }else if (numeroSorteado == 3) {
         resultado.innerHTML = 'PEDRA, VOCÊ PERDEU'
