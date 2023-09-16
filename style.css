@@ -13,14 +13,15 @@ input[type="button"]{
 #resultado{
     width: 250px;
     margin:10px 0px;
-    background-color: aquamarine;
+    background-color: rgb(127, 208, 255);
     text-align: center;
+    padding: 0.4rem;
 }
 
 #placar{
     width: 250px;
     text-align: center;
-    background-color: rgb(27, 26, 26);
+    background-color: rgb(49, 47, 47);
     color: white;
     padding: 0.4rem;
 }

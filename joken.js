@@ -21,7 +21,9 @@ function exibir(num,frase) {
         pedra.style.background = 'green'
         tesoura.style.background = 'red'
         papel.style.color = 'black'
-        resultado.innerHTML = frase;    
+        resultado.innerHTML = frase; 
+        resultado.style.background = 'green'
+        resultado.style.color = 'white'   
         placar.innerHTML = `PLACAR: ${contador++}`
         
         return;
@@ -32,6 +34,8 @@ function exibir(num,frase) {
         papel.style.background = 'green'
         tesoura.style.color = 'black'
         resultado.innerHTML = frase
+        resultado.style.background = 'red'
+        resultado.style.color = 'white' 
 
         return;
     }
@@ -41,7 +45,9 @@ function exibir(num,frase) {
         pedra.style.background = 'black'
         papel.style.color = 'black'
         tesoura.style.color = 'black'
-        
+        resultado.style.background = 'black'
+        resultado.style.color = 'white' 
+
         return;
     }
     
@@ -49,6 +55,9 @@ function exibir(num,frase) {
         papel.style.background = 'red'
         tesoura.style.background = 'green'
         pedra.style.color = 'black'
+        resultado.style.background = 'red'
+        resultado.style.color = 'white' 
+
         resultado.innerHTML = frase
         
         return;
@@ -59,7 +68,9 @@ function exibir(num,frase) {
         papel.style.background = 'black'
         pedra.style.color = 'black'
         tesoura.style.color = 'black'
-        
+        resultado.style.background = 'black'
+        resultado.style.color = 'white' 
+
         return;
     }
 
@@ -68,6 +79,8 @@ function exibir(num,frase) {
         pedra.style.background = 'red'
         tesoura.style.color = 'black'
         resultado.innerHTML = frase;    
+        resultado.style.background = 'green'
+        resultado.style.color = 'white' 
         placar.innerHTML = `PLACAR: ${contador++}`
         
         return;
@@ -78,6 +91,8 @@ function exibir(num,frase) {
         tesoura.style.background = 'black'
         pedra.style.color = 'black'   
         papel.style.color = 'black'
+        resultado.style.background = 'black'
+        resultado.style.color = 'white' 
 
         return;
     }
@@ -87,6 +102,9 @@ function exibir(num,frase) {
         papel.style.background = 'red'
         pedra.style.color = 'black'
         resultado.innerHTML = frase
+        resultado.style.background = 'green'
+        resultado.style.color = 'white' 
+
         placar.innerHTML = `PLACAR: ${contador++}`
 
         return;
@@ -96,6 +114,9 @@ function exibir(num,frase) {
         tesoura.style.background = 'red'
         pedra.style.background = 'green'
         papel.style.color = 'black'
+        resultado.style.background = 'red'
+        resultado.style.color = 'white' 
+
         resultado.innerHTML = frase;
 
         return;
