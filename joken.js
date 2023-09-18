@@ -2,6 +2,7 @@
 
 const containerBotoes = document.querySelector('#container-botoes')
 const resultado = document.querySelector('#container-resultado')
+const descricao = document.querySelector('#descricao')
 const desfecho = document.querySelector('#desfecho')
 const replay = document.querySelector('#replay')
 const regras = document.querySelector('#regras')
@@ -22,8 +23,8 @@ function limparResultado() {
 
 function trocaEstilo(fonte,destino){ 
     // PASSA O ESTILO DO BOTÃO ESCOLHIDO PRO ESPAÇO DO RESULTADO
-    const estilo = fonte.getAttribute('class')
-    destino.setAttribute('class',estilo)
+    const estilo2 = fonte.getAttribute('class')
+    destino.setAttribute('class',estilo2)
 }
 
 function exibirDesfecho(frase) {
@@ -31,6 +32,12 @@ function exibirDesfecho(frase) {
     desfecho.innerHTML = frase
     replay.style.display = 'block'
     desfecho.style.display = 'block'
+}
+
+function editarDisplay() {
+    regras.style.display = 'none'
+    containerBotoes.style.display = 'none'
+    resultado.style.display = 'block'
 }
 
 function exibir(num) {
@@ -42,7 +49,7 @@ function exibir(num) {
                 exibirDesfecho('VOCÊ VENCEU')
                 placar.innerHTML = contador++ // ATUALIZA O PLACAR
     
-            },2000) // 1 SEGUNDO
+            },1700) // 1 SEGUNDO
             break;
         
         case 2:
@@ -58,7 +65,7 @@ function exibir(num) {
             setTimeout(()=>{
                 trocaEstilo(pedra,base2)
                 exibirDesfecho('EMPATOU')
-            },2000)
+            },1700)
             break
 
         case 4:
@@ -66,7 +73,7 @@ function exibir(num) {
             setTimeout(()=>{
                 trocaEstilo(tesoura,base2)
                 exibirDesfecho('VOCÊ PERDEU')
-            },2000)
+            },1700)
             break;
         
         case 5:
@@ -108,7 +115,7 @@ function exibir(num) {
             setTimeout(()=>{
                 trocaEstilo(pedra,base2)
                 exibirDesfecho('VOCÊ PERDEU')
-            },2000)
+            },1700)
             break;
         
         default:
@@ -118,13 +125,10 @@ function exibir(num) {
 
 pedra.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
-    containerBotoes.style.display = 'none'
-    resultado.style.display = 'block'
-    regras.style.display = 'none'
+    editarDisplay()
     setTimeout(() => {
         trocaEstilo(pedra,base1)
-    }, 500);
-
+    }, 400);
     numeroSorteado == 1 ? exibir(1):
     numeroSorteado == 2 ? exibir(2):
     numeroSorteado == 3 ? exibir(3):''
@@ -133,13 +137,10 @@ pedra.addEventListener('click', ()=>{
 
 papel.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
-    containerBotoes.style.display = 'none'
-    resultado.style.display = 'block'
-    regras.style.display = 'none'
+    editarDisplay()
     setTimeout(() => {
         trocaEstilo(papel,base1)
-    }, 700);
-
+    }, 400);
     numeroSorteado == 1 ? exibir(4):
     numeroSorteado == 2 ? exibir(5):
     numeroSorteado == 3 ? exibir(6):''
@@ -147,13 +148,10 @@ papel.addEventListener('click', ()=>{
 
 tesoura.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
-    containerBotoes.style.display = 'none'
-    resultado.style.display = 'block'
-    regras.style.display = 'none'
+    editarDisplay()
     setTimeout(() => {
         trocaEstilo(tesoura,base1)
-    }, 700);
-
+    }, 400);
     numeroSorteado == 1 ? exibir(7):
     numeroSorteado == 2 ? exibir(8):
     numeroSorteado == 3 ? exibir(9):''
@@ -167,9 +165,12 @@ replay.addEventListener('click',()=>{
     regras.style.display = 'block'
 })
 
-/*
 regras.addEventListener('click',()=>{
-    const div = document.createElement('div')
-    div.innerHTML = 'TÔ VIVO'
-    regras.insertBefore(div,regras.firstChild)
-})*/
+    if (descricao.style.display == 'block') {
+        descricao.style.display = 'none'
+
+    }else{
+        descricao.style.display = 'block'
+    }
+   
+})
