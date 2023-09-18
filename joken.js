@@ -1,149 +1,175 @@
+/* 1 - TESOURA, 2 - PAPEL, 3 - PEDRA */
 
-const pedra = document.querySelector('#pedra')
-const papel = document.querySelector('#papel')
-const tesoura = document.querySelector('#tesoura')
-const resultado = document.querySelector('#resultado')
-const placar = document.querySelector('#placar')
-let contador = 1;
+const containerBotoes = document.querySelector('#container-botoes')
+const resultado = document.querySelector('#container-resultado')
+const desfecho = document.querySelector('#desfecho')
+const replay = document.querySelector('#replay')
+const regras = document.querySelector('#regras')
+const pedra = document.querySelector('.pedra')
+const papel = document.querySelector('.papel')
+const tesoura = document.querySelector('.tesoura')
+const placar = document.querySelector('#score')
+const base1 = document.querySelector('#base1')
+const base2 = document.querySelector('#base2')
+const estilo = base2.getAttribute('class')
+let contador = 1; // RECEBE A ATUALIZAÇÃO DO PLACAR
 
-function cores() {
-    pedra.style.background = '#F0F0F0'
-    papel.style.background = '#F0F0F0'
-    tesoura.style.background = '#F0F0F0'
-    pedra.style.color = 'white'
-    papel.style.color = 'white'
-    tesoura.style.color = 'white'
+function limparResultado() { 
+    // DESLIGA O BOTÃO DE REPLAY E O RESULTADO (VENCEU,EMPATOU,PERDEU)
+    replay.style.display = 'none'
+    desfecho.style.display = 'none'
 }
 
-function exibir(num,frase) {
-   
-    if (num == 1) {
-        pedra.style.background = 'green'
-        tesoura.style.background = 'red'
-        papel.style.color = 'black'
-        resultado.innerHTML = frase; 
-        resultado.style.background = 'green'
-        resultado.style.color = 'white'   
-        placar.innerHTML = `PLACAR: ${contador++}`
-        
-        return;
-    }
+function trocaEstilo(fonte,destino){ 
+    // PASSA O ESTILO DO BOTÃO ESCOLHIDO PRO ESPAÇO DO RESULTADO
+    const estilo = fonte.getAttribute('class')
+    destino.setAttribute('class',estilo)
+}
 
-    if (num == 2) {
-        pedra.style.background = 'red'
-        papel.style.background = 'green'
-        tesoura.style.color = 'black'
-        resultado.innerHTML = frase
-        resultado.style.background = 'red'
-        resultado.style.color = 'white' 
+function exibirDesfecho(frase) {
+    //RELIGA O QUE O LIMPAR DESLIGOU ALI EM CIMA
+    desfecho.innerHTML = frase
+    replay.style.display = 'block'
+    desfecho.style.display = 'block'
+}
 
-        return;
-    }
-
-    if (num == 3) {
-        resultado.innerHTML = frase
-        pedra.style.background = 'black'
-        papel.style.color = 'black'
-        tesoura.style.color = 'black'
-        resultado.style.background = 'black'
-        resultado.style.color = 'white' 
-
-        return;
-    }
+function exibir(num) {
+    switch (num) {
+        case 1:
+            limparResultado()
+            setTimeout(()=>{ // DEFINE UM TEMPO PRA MOSTRAR A ESCOLHA DA MAQUINA
+                trocaEstilo(tesoura,base2)
+                exibirDesfecho('VOCÊ VENCEU')
+                placar.innerHTML = contador++ // ATUALIZA O PLACAR
     
-    if (num == 4) {
-        papel.style.background = 'red'
-        tesoura.style.background = 'green'
-        pedra.style.color = 'black'
-        resultado.style.background = 'red'
-        resultado.style.color = 'white' 
-
-        resultado.innerHTML = frase
+            },2000) // 1 SEGUNDO
+            break;
         
-        return;
-    }
+        case 2:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(papel,base2)
+                exibirDesfecho('VOCÊ PERDEU')
+            },2000)
+            break;
 
-    if (num == 5) {
-        resultado.innerHTML = frase
-        papel.style.background = 'black'
-        pedra.style.color = 'black'
-        tesoura.style.color = 'black'
-        resultado.style.background = 'black'
-        resultado.style.color = 'white' 
+        case 3:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(pedra,base2)
+                exibirDesfecho('EMPATOU')
+            },2000)
+            break
 
-        return;
-    }
-
-    if (num == 6) {
-        papel.style.background = 'green'
-        pedra.style.background = 'red'
-        tesoura.style.color = 'black'
-        resultado.innerHTML = frase;    
-        resultado.style.background = 'green'
-        resultado.style.color = 'white' 
-        placar.innerHTML = `PLACAR: ${contador++}`
+        case 4:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(tesoura,base2)
+                exibirDesfecho('VOCÊ PERDEU')
+            },2000)
+            break;
         
-        return;
-    }
-
-    if (num == 7) {
-        resultado.innerHTML = frase
-        tesoura.style.background = 'black'
-        pedra.style.color = 'black'   
-        papel.style.color = 'black'
-        resultado.style.background = 'black'
-        resultado.style.color = 'white' 
-
-        return;
-    }
-
-    if (num == 8) {
-        tesoura.style.background = 'green'
-        papel.style.background = 'red'
-        pedra.style.color = 'black'
-        resultado.innerHTML = frase
-        resultado.style.background = 'green'
-        resultado.style.color = 'white' 
-
-        placar.innerHTML = `PLACAR: ${contador++}`
-
-        return;
-    }
-
-    if (num == 9) {
-        tesoura.style.background = 'red'
-        pedra.style.background = 'green'
-        papel.style.color = 'black'
-        resultado.style.background = 'red'
-        resultado.style.color = 'white' 
-
-        resultado.innerHTML = frase;
-
-        return;
-    }
+        case 5:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(papel,base2)
+                exibirDesfecho('EMPATOU')
+            },2000)
+            break;
     
+        case 6:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(pedra,base2)
+                placar.innerHTML = contador++
+                exibirDesfecho('VOCÊ VENCEU')
+            },2000)
+            break;
+
+        case 7:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(tesoura,base2)
+                exibirDesfecho('EMPATOU')
+            },2000)
+            break;
+
+        case 8:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(papel,base2)
+                placar.innerHTML = contador++
+                exibirDesfecho('VOCÊ VENCEU')
+            },2000)
+            break;
+
+        case 9:
+            limparResultado()
+            setTimeout(()=>{
+                trocaEstilo(pedra,base2)
+                exibirDesfecho('VOCÊ PERDEU')
+            },2000)
+            break;
+        
+        default:
+            break;
+    }    
 }
 
 pedra.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
-    cores()
-    numeroSorteado == 1 ? exibir(1,'TESOURA, VOCÊ VENCEU'):
-    numeroSorteado == 2 ? exibir(2,'PAPEL, VOCÊ PERDEU'):
-    numeroSorteado == 3 ? exibir(3,'PEDRA, EMPATOU'):''
+    containerBotoes.style.display = 'none'
+    resultado.style.display = 'block'
+    regras.style.display = 'none'
+    setTimeout(() => {
+        trocaEstilo(pedra,base1)
+    }, 500);
+
+    numeroSorteado == 1 ? exibir(1):
+    numeroSorteado == 2 ? exibir(2):
+    numeroSorteado == 3 ? exibir(3):''
+
 })
 
 papel.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
-    cores()
-    numeroSorteado == 1 ? exibir(4,'TESOURA, VOCÊ PERDEU'):
-    numeroSorteado == 2 ? exibir(5,'PAPEL, EMPATOU'):
-    numeroSorteado == 3 ? exibir(6,'PEDRA, VOCÊ VENCEU'):''
+    containerBotoes.style.display = 'none'
+    resultado.style.display = 'block'
+    regras.style.display = 'none'
+    setTimeout(() => {
+        trocaEstilo(papel,base1)
+    }, 700);
+
+    numeroSorteado == 1 ? exibir(4):
+    numeroSorteado == 2 ? exibir(5):
+    numeroSorteado == 3 ? exibir(6):''
 })
 
 tesoura.addEventListener('click', ()=>{
     let numeroSorteado = Math.floor(3* Math.random())+1;
-    cores()
-    numeroSorteado == 1 ? exibir(7,'TESOURA, EMPATOU'):
-    numeroSorteado == 2 ? exibir(8,'PAPEL, VOCÊ VENCEU'):
-    numeroSorteado == 3 ? exibir(9,'PEDRA, VOCÊ PERDEU'):''
+    containerBotoes.style.display = 'none'
+    resultado.style.display = 'block'
+    regras.style.display = 'none'
+    setTimeout(() => {
+        trocaEstilo(tesoura,base1)
+    }, 700);
+
+    numeroSorteado == 1 ? exibir(7):
+    numeroSorteado == 2 ? exibir(8):
+    numeroSorteado == 3 ? exibir(9):''
 })
+
+replay.addEventListener('click',()=>{
+    containerBotoes.style.display = 'flex'
+    base1.setAttribute('class',estilo)
+    base2.setAttribute('class',estilo)    
+    resultado.style.display = 'none'
+    regras.style.display = 'block'
+})
+
+/*
+regras.addEventListener('click',()=>{
+    const div = document.createElement('div')
+    div.innerHTML = 'TÔ VIVO'
+    regras.insertBefore(div,regras.firstChild)
+})*/

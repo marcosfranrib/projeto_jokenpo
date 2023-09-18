@@ -8,18 +8,41 @@
 </head>
 <body>
 
-    <div id="container">
-        <h1>JokenPô</h1>
+    <div id="container-geral">
+        
+        <div id="container-topo">
+            <p id="titulo">PEDRA PAPEL TESOURA</p>
+            <div id="placar">
+               <div id="score">0</div>
+            </div>
+        </div>
+
         <div id="container-botoes">
-            <input type="button" value="PEDRA" id="pedra"></button>
-            <input type="button" value="PAPEL" id="papel"></button>
-            <input type="button" value="TESOURA" id="tesoura"></button>
+            <input type="button" id="papel" class="papel">
+            <input type="button" id="tesoura" class="tesoura">
+            <input type="button" id="pedra" class="pedra">
         </div>
-        <div id="resultado">
-            CLIQUE EM UM BOTÃO
+
+        <div id="regras">REGRAS</div>
+
+        <div id="container-resultado">
+            <div id="container-base">
+                <input type="button" id="base1" class="base1">
+                <input type="button" id="base2" class="base2">
+            </div>
+
+            <div id="containerTextoEscolha">
+                <span>VOCÊ ESCOLHEU</span>
+                <span>A CASA ESCOLHEU</span>
+            </div>
+           
+            <div id="desfecho"></div>
+          
+            <button id="replay">JOGAR DE NOVO</button>
+        
         </div>
-        <div id="placar">PLACAR: 0</div>
     </div>
+
     <script src="joken.js"></script>
 
 </body>
