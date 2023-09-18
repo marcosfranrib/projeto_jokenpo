@@ -35,6 +35,7 @@ function exibirDesfecho(frase) {
 }
 
 function editarDisplay() {
+    descricao.style.display = 'none'
     regras.style.display = 'none'
     containerBotoes.style.display = 'none'
     resultado.style.display = 'block'
@@ -163,6 +164,7 @@ replay.addEventListener('click',()=>{
     base2.setAttribute('class',estilo)    
     resultado.style.display = 'none'
     regras.style.display = 'block'
+    descricao.style.display = 'none'
 })
 
 regras.addEventListener('click',()=>{
